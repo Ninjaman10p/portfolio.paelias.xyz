@@ -1,0 +1,195 @@
+@font-face {
+    font-family: Roboto Serif;   
+    src: url(fonts/Roboto_Serif/variable/RobotoSerif[GRAD,opsz,wdth,wght].ttf);
+}
+
+:root {
+    --spacing: 30px;   
+    --anim-dur: 200ms;
+}
+
+@media only screen and (max-width: 1000px) {
+    :root {
+        --spacing: 20px;   
+    }
+
+    :root .theme-toggle > div {
+        margin: 1px;   
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    :root:root {
+        --spacing: 30px;
+    }
+
+    :root:root .theme-toggle > div {
+        margin: 2px;   
+    }
+
+    :root body {
+        grid-template-rows: calc(var(--spacing) * 10) 0px calc(var(--spacing) * 4) min-content 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "pfp" "banner" "pfp-hang" "nav" "main";
+    }
+
+    :root main {
+        padding-left: var(--spacing);
+    }
+
+    :root .profile-image > div {
+        position: relative;
+        top: calc(5 * var(--spacing));
+        margin: auto;
+    }
+
+    :root nav {
+        padding-right: var(--spacing);
+    }
+}
+
+html:has([data-theme="dark"]) {
+    --body-bg: #12121C;
+    --body-fg: #ECEDF3;
+    --profile-image: url(img/placeholder-person-dark.webp);
+    --banner-image: url(img/silhouette-full-moon-night-72165.webp);
+    --profile-image-shadow: none;
+    --profile-image-border: 1px solid var(--body-fg);
+}
+
+html:has([data-theme="light"]) {
+    --body-bg: #fff4f1;
+    --body-fg: #1A000D;
+    --profile-image: url(img/placeholder-person.webp);
+    --banner-image: url(img/placeholder-banner.webp);
+    --profile-image-shadow: 1px 1px 2px var(--body-fg);
+    --profile-image-border: none;
+}
+
+html {
+    background-color: var(--body-bg);
+    color: var(--body-fg);
+    font-family: Roboto Serif;
+    transition: background-color var(--anim-dur), color var(--anim-dur);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: calc(var(--spacing) * 10) calc(var(--spacing) * 4) 1fr;
+    grid-template-columns: calc(var(--spacing) * 20) 1fr;
+    grid-template-areas: "pfp banner" "pfp-hang main" "nav main";
+    grid-gap: var(--spacing)
+}
+
+header {
+    background: var(--banner-image);
+    background-size: cover;
+    background-position: 0% 50%;
+    grid-area: pfp / pfp / banner / banner;
+    transition: background var(--anim-dur);
+}
+
+.profile-image {
+    position: relative;
+    grid-area: pfp / pfp / pfp-hang / pfp-hang;
+}
+
+.profile-image > div {
+    padding: var(--spacing);
+    background-color: var(--body-bg);
+    position: absolute;
+    bottom: calc(-1 * var(--spacing));
+    right: calc(-1 * var(--spacing));
+    transition: background-color var(--anim-dur);
+    width: min-content;
+}
+
+.profile-image > div > div {
+    width: calc(10 * var(--spacing));
+    height: calc(10 * var(--spacing));
+    box-shadow: var(--profile-image-shadow);
+    border: var(--profile-image-border);
+    background: var(--profile-image);
+    background-size: cover;
+    transition: background var(--anim-dur), box-shadow var(--anim-dur), border var(--anim-dur);
+}
+
+h1 {
+    margin-top: calc(1.5 * var(--spacing));
+    margin-bottom: calc(0.5 * var(--spacing));
+}
+
+h1:nth-child(1) {
+    margin-top: calc(0.5 * var(--spacing));
+}
+
+main {
+    grid-area: main;   
+    padding-right: var(--spacing);
+    padding-bottom: var(--spacing);
+}
+
+nav {
+    grid-area: nav;   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+nav > h3 {
+    margin-top: 0px;   
+    margin-bottom: var(--spacing);
+}
+
+nav > * {
+    display: block;
+    width: max-content;
+}
+
+nav > a {
+    margin-bottom: calc(0.5 * var(--spacing));
+}
+
+a {
+    color: var(--text-fg);
+}
+
+.theme-toggle {
+    box-sizing: border-box;
+    display: block;
+    height: calc(1 * var(--spacing));
+    padding: 0;
+    width: calc(2 * var(--spacing));
+    border-radius: calc(0.5 * var(--spacing));
+    background: none;
+    border: 1px solid var(--body-fg);
+    position: absolute;
+    top: var(--spacing);
+    right: var(--spacing);
+    cursor: pointer;
+    background-color: var(--body-bg);
+    transition: background-color var(--anim-dur), border var(--anim-dur);
+}
+
+.theme-toggle > div {
+    position: absolute;
+    height: calc(0.8 * var(--spacing));
+    width: calc(0.8 * var(--spacing));
+    margin: 2px;
+    top: 0;
+    left: 0;
+    background-color: var(--body-fg);
+    border-radius: 50%;
+    transition: left var(--anim-dur), background-color var(--anim-dur);
+}
+
+html:has([data-theme="dark"]) .theme-toggle > div {
+    left: var(--spacing);
+}
+
+small {
+    opacity: 0.8;
+    font-style: italic;
+}
