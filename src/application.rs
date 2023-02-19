@@ -60,9 +60,12 @@ impl Component for PeterGow {
                     <a href={"https://github.com/Ninjaman10p"}>{"Github"}</a>
                     <a>{"LinkedIn"}</a>
                     <a>{"Email"}</a>
-                    <small>{"This website was written in "}
-                    <a href={"https://yew.rs"}>{"Yew"}</a>
-                    {", a Rust framework"}</small>
+                    <small>
+                        <a href={"https://github.com/Ninjaman10p/portfolio.paelias.xyz"}>{"This website"}</a>
+                        {" was written in "}
+                        <a href={"https://yew.rs"}>{"Yew"}</a>
+                        {", a Rust framework"}
+                    </small>
                 </nav>
                 <main>
                     <h1>{"About Me"}</h1>
@@ -73,12 +76,30 @@ impl Component for PeterGow {
                     "}
                     <h1>{"Projects"}</h1>
                     <ul>
-                        <li>{"In 2021, I created a PHP-based website for the MacGregor SHS student leadership
-                    team, to track and display house points."}</li>
-                        <li>{"In 2022, I created "}
-                        <a href={"https://github.com/Ninjaman10p/brainless"}>{"brainless"}</a>
-                        {", a transpiler from a python-like language
-                            to brainf!%# written in Haskell, in 3 days for the UQCS Hackathon."}</li>
+                        <li>
+                            {"In 2021, I created a PHP-based website for the MacGregor SHS student leadership
+                            team, to track and display house points."}
+                        </li>
+                        <li>
+                            {"In 2022, I created "}
+                            <a href={"https://github.com/Ninjaman10p/h-mapgen/"}>{"h-mapgen"}</a>
+                            {", a randomised map generator using graphs and chunking for optimisation
+                            for a contact."}
+                        </li>
+                        <li>
+                            {"In 2022, I created "}
+                            <a href={"https://github.com/Ninjaman10p/brainless"}>{"brainless"}</a>
+                            {", a transpiler from a python-like language
+                            to brainf!%# written in Haskell, in 3 days for the UQCS Hackathon."}
+                        </li>
+                        <li>
+                            {"In preparation for the UQCS Hackathon 2022, I created "}
+                            <a href={"https://github.com/Ninjaman10p/mindmap-hs"}>{"brainless"}</a>
+                            {" to help me organise my notes. mindmap-hs is a
+                            TUI mindmapping program written in Haskell using "}
+                            <a href={"https://hackage.haskell.org/package/brick"}>{"Brick"}</a>
+                            {"."}
+                        </li>
                     </ul>
                     <h1>{"Employment and Education History"}</h1>
                     <ul>
