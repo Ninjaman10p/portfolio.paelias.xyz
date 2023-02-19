@@ -444,7 +444,9 @@ dependencies = [
  "gloo-storage",
  "log",
  "serde",
+ "wasm-bindgen",
  "wasm-logger",
+ "web-sys",
  "yew",
 ]
 

@@ -4,27 +4,19 @@
 }
 
 :root {
-    --spacing: 30px;   
+    --spacing: calc(10px + 100vw * 20 / 1920); /* 30px at 1920px */
     --anim-dur: 200ms;
 }
 
-@media only screen and (max-width: 1000px) {
+/* @media only screen and (max-width: 1000px) {
     :root {
         --spacing: 20px;   
     }
+} */
 
-    :root .theme-toggle > div {
-        margin: 1px;   
-    }
-}
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 25cm) {
     :root:root {
-        --spacing: 30px;
-    }
-
-    :root:root .theme-toggle > div {
-        margin: 2px;   
+        --spacing: calc(10px + 100vw * 20 / 1000) /* 30px; */
     }
 
     :root body {
@@ -48,7 +40,7 @@
     }
 }
 
-html:has([data-theme="dark"]) {
+[data-theme="dark"] {
     --body-bg: #12121C;
     --body-fg: #ECEDF3;
     --profile-image: url(img/placeholder-person-dark.webp);
@@ -57,7 +49,7 @@ html:has([data-theme="dark"]) {
     --profile-image-border: 1px solid var(--body-fg);
 }
 
-html:has([data-theme="light"]) {
+[data-theme="light"] {
     --body-bg: #fff4f1;
     --body-fg: #1A000D;
     --profile-image: url(img/placeholder-person.webp);
@@ -175,8 +167,8 @@ a {
 
 .theme-toggle > div {
     position: absolute;
-    height: calc(0.8 * var(--spacing));
-    width: calc(0.8 * var(--spacing));
+    height: calc(var(--spacing) - 6px);
+    width: calc(var(--spacing) - 6px);
     margin: 2px;
     top: 0;
     left: 0;
@@ -185,7 +177,7 @@ a {
     transition: left var(--anim-dur), background-color var(--anim-dur);
 }
 
-html:has([data-theme="dark"]) .theme-toggle > div {
+[data-theme="dark"] .theme-toggle > div {
     left: var(--spacing);
 }
 

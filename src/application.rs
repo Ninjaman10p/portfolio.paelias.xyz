@@ -44,11 +44,7 @@ impl Component for PeterGow {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let theme = LocalStorage::get("theme").unwrap_or(Theme::Light);
-        let data_theme = match theme {
-            Theme::Light => "light",
-            Theme::Dark => "dark",
-        }
-        .to_string();
+        set_theme(&theme);
         let invert_colors = {
             let theme = theme.clone();
             ctx.link().callback(move |_| Msg::SetTheme(theme.invert()))
@@ -68,7 +64,7 @@ impl Component for PeterGow {
                     <a href={"https://yew.rs"}>{"Yew"}</a>
                     {", a Rust framework"}</small>
                 </nav>
-                <main data-theme={data_theme}>
+                <main>
                     <h1>{"About Me"}</h1>
                     {"I started programming in 2016 in Grade 7 of High School,
                     learning JavaScript (I intended to learn Java at the time).
@@ -101,4 +97,17 @@ impl Component for PeterGow {
             </>
         }
     }
+}
+
+fn set_theme(theme: &Theme) -> Option<()> {
+    let data_theme = match theme {
+        Theme::Light => "light",
+        Theme::Dark => "dark",
+    }
+    .to_string();
+    web_sys::window()?
+        .document()?
+        .document_element()?
+        .set_attribute("data-theme", &data_theme).ok()?;
+    Some(())
 }
