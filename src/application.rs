@@ -74,7 +74,7 @@ impl Component for PeterGow {
                     I've been refining my skills and learning new programming languages
                     and mathematical concepts since then.
                     "}
-                    <h1>{"Projects"}</h1>
+                    <h1>{"Featured Projects"}</h1>
                     <ul>
                         <li>
                             {"In 2021, I created a PHP-based website for the MacGregor SHS student leadership
@@ -92,14 +92,6 @@ impl Component for PeterGow {
                             {", a transpiler from a python-like language
                             to brainf!%# written in Haskell, in 3 days for the UQCS Hackathon."}
                         </li>
-                        <li>
-                            {"In preparation for the UQCS Hackathon 2022, I created "}
-                            <a href={"https://github.com/Ninjaman10p/mindmap-hs"}>{"brainless"}</a>
-                            {" to help me organise my notes. mindmap-hs is a
-                            TUI mindmapping program written in Haskell using "}
-                            <a href={"https://hackage.haskell.org/package/brick"}>{"Brick"}</a>
-                            {"."}
-                        </li>
                     </ul>
                     <h1>{"Employment and Education History"}</h1>
                     <ul>
@@ -112,6 +104,24 @@ impl Component for PeterGow {
                         <li>{"Dux of MacGregor State High School (2021)"}</li>
                         <li>{"Deans Commendation for Academic Excellence at UQ (2022, both semesters)"}</li>
                         <li>{"Most Masochistic at the 2022 UQCS Hackathon"}</li>
+                    </ul>
+                    <h1>{"Other Projects"}</h1>
+                    <ul>
+                        <li>
+                            {"A series of small TUI apps and games written using Brick: "}
+                            <a href="https://github.com/Ninjaman10p/hrain">{"hrain"}</a>{", "}
+                            <a href="https://github.com/Ninjaman10p/snake-hs">{"snake-hs"}</a>{", and "}
+                            <a href="https://github.com/Ninjaman10p/checkers-hs">{"checkers-hs"}</a>
+                            {" (2022)"}
+                        </li>
+                        <li>
+                            {"In preparation for the UQCS Hackathon 2022, I created "}
+                            <a href={"https://github.com/Ninjaman10p/mindmap-hs"}>{"mindmap-hs"}</a>
+                            {" to help me organise my notes. mindmap-hs is a
+                            TUI mindmapping program written in Haskell using "}
+                            <a href={"https://hackage.haskell.org/package/brick"}>{"Brick"}</a>
+                            {"."}
+                        </li>
                     </ul>
                 </main>
                 <button class={"theme-toggle"} onclick={invert_colors}><div></div></button>

@@ -1,4 +1,4 @@
-@font-face {
+Gfont-face {
     font-family: Roboto Serif;   
     src: url(fonts/Roboto_Serif/variable/RobotoSerif[GRAD,opsz,wdth,wght].ttf);
 }
@@ -46,16 +46,16 @@
     --profile-image: url(img/placeholder-person-dark.webp);
     --banner-image: url(img/silhouette-full-moon-night-72165.webp);
     --profile-image-shadow: none;
-    --profile-image-border: 1px solid var(--body-fg);
+    --profile-image-border-size: 1px;
 }
 
 [data-theme="light"] {
     --body-bg: #fff4f1;
     --body-fg: #1A000D;
-    --profile-image: url(img/placeholder-person.webp);
-    --banner-image: url(img/placeholder-banner.webp);
+    --profile-image: url(img/placeholder-person-dark.webp);
+    --banner-image: url(img/silhouette-full-moon-night-72165.webp);
     --profile-image-shadow: 1px 1px 2px var(--body-fg);
-    --profile-image-border: none;
+    --profile-image-border-size: 0px;
 }
 
 html {
@@ -89,7 +89,7 @@ header {
 }
 
 .profile-image > div {
-    padding: var(--spacing);
+    padding: calc(var(--spacing) - var(--profile-image-border-size));
     background-color: var(--body-bg);
     position: absolute;
     bottom: calc(-1 * var(--spacing));
@@ -102,10 +102,11 @@ header {
     width: calc(10 * var(--spacing));
     height: calc(10 * var(--spacing));
     box-shadow: var(--profile-image-shadow);
-    border: var(--profile-image-border);
+    border: var(--profile-image-border-size) solid var(--body-fg);
     background: var(--profile-image);
+    box-sizing: padding-box;
     background-size: cover;
-    transition: background var(--anim-dur), box-shadow var(--anim-dur), border var(--anim-dur);
+    transition: background var(--anim-dur);
 }
 
 h1 {
