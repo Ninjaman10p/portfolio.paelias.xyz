@@ -43,7 +43,7 @@ impl Component for PeterGow {
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        let theme = LocalStorage::get("theme").unwrap_or(Theme::Light);
+        let theme = LocalStorage::get("theme").unwrap_or(Theme::Dark);
         set_theme(&theme);
         let invert_colors = {
             let theme = theme.clone();
