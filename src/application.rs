@@ -55,11 +55,12 @@ impl Component for PeterGow {
                 <div class="profile-image">
                     <div><div></div></div>
                 </div>
+                <button class={"theme-toggle"} onclick={invert_colors}><div></div></button>
                 <nav>
                     <h3>{"Peter Gow"}</h3>
                     <a href={"https://github.com/Ninjaman10p"}>{"Github"}</a>
                     <a>{"LinkedIn"}</a>
-                    <a>{"Email"}</a>
+                    <a href={"mailto:petergow@live.com.au"}>{"Email"}</a>
                     <small>
                         <a href={"https://github.com/Ninjaman10p/portfolio.paelias.xyz"}>{"This website"}</a>
                         {" was written in "}
@@ -82,22 +83,23 @@ impl Component for PeterGow {
                         </li>
                         <li>
                             {"In 2022, I created "}
-                            <a href={"https://github.com/Ninjaman10p/h-mapgen/"}>{"h-mapgen"}</a>
+                            <a href={github("h-mapgen")}>{"h-mapgen"}</a>
                             {", a randomised map generator using graphs and chunking for optimisation
-                            for a contact."}
+                            for a contact. Check "}<a href={"https://h-mapgen.paelias.xyz"}>{"here"}</a>
+                            {" for an online instance."}
                         </li>
                         <li>
                             {"In 2022, I created "}
-                            <a href={"https://github.com/Ninjaman10p/brainless"}>{"brainless"}</a>
+                            <a href={github("brainless")}>{"brainless"}</a>
                             {", a transpiler from a python-like language
                             to brainf!%# written in Haskell, in 3 days for the UQCS Hackathon."}
                         </li>
                     </ul>
                     <h1>{"Employment and Education History"}</h1>
                     <ul>
-                        <li>{"Ongoing UQ Bachelor of Maths/Science (2021-current)"}</li>
-                        <li>{"Casual Tutor at LEE Excellence Education (2021-current)"}</li>
-                        <li>{"Casual Salesforce Developer for Coherent Scientific (late 2021-current)"}</li>
+                        <li>{"Ongoing UQ Bachelor of Maths/Science (2022-current)"}</li>
+                        <li>{"Casual Tutor at LEE Excellence Education (2022-current)"}</li>
+                        <li>{"Casual Salesforce Developer for Coherent Scientific (late 2022-current)"}</li>
                     </ul>
                     <h1>{"Awards and Recognition"}</h1>
                     <ul>
@@ -109,14 +111,14 @@ impl Component for PeterGow {
                     <ul>
                         <li>
                             {"A series of small TUI apps and games written using Brick: "}
-                            <a href="https://github.com/Ninjaman10p/hrain">{"hrain"}</a>{", "}
-                            <a href="https://github.com/Ninjaman10p/snake-hs">{"snake-hs"}</a>{", and "}
-                            <a href="https://github.com/Ninjaman10p/checkers-hs">{"checkers-hs"}</a>
+                            <a href={github("hrain")}>{"hrain"}</a>{", "}
+                            <a href={github("snake-hs")}>{"snake-hs"}</a>{", and "}
+                            <a href={github("checkers-hs")}>{"checkers-hs"}</a>
                             {" (2022)"}
                         </li>
                         <li>
                             {"In preparation for the UQCS Hackathon 2022, I created "}
-                            <a href={"https://github.com/Ninjaman10p/mindmap-hs"}>{"mindmap-hs"}</a>
+                            <a href={github("mindmap-hs")}>{"mindmap-hs"}</a>
                             {" to help me organise my notes. mindmap-hs is a
                             TUI mindmapping program written in Haskell using "}
                             <a href={"https://hackage.haskell.org/package/brick"}>{"Brick"}</a>
@@ -124,7 +126,6 @@ impl Component for PeterGow {
                         </li>
                     </ul>
                 </main>
-                <button class={"theme-toggle"} onclick={invert_colors}><div></div></button>
             </>
         }
     }
@@ -141,4 +142,8 @@ fn set_theme(theme: &Theme) -> Option<()> {
         .document_element()?
         .set_attribute("data-theme", &data_theme).ok()?;
     Some(())
+}
+
+fn github(repo: &str) -> String {
+    format!("https://github.com/Ninjaman10p/{}", repo)   
 }
